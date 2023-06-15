@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-/*
- * hello with put not printf
+/** 
+* main - Programming is like building a multilingual puzzle
+* Return: 0 (success)
 */
 
 int main(void)
