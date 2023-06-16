@@ -12,6 +12,6 @@ for (i = 1; i < 10; i++)
 putchar((i + '0') % 10 + ',');
 putchar(' ');
 }
-putchr('\n')
+putchr('\n');
 return (0);
 }
