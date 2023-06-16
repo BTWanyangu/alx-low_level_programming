@@ -9,9 +9,9 @@ int i;
 putchar('0');
 for (i = 1; i < 10; i++)
 {
-putchar(',');
+putchar((i + '0') % 10 + ',');
 putchar(' ');
-putchar(i + '0');
 }
+putchr('\n')
 return (0);
 }
