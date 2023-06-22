@@ -7,13 +7,10 @@
  */
 void print_triangle(int size)
 {
-int row, hashes, spaces;
+int row, hashes;
 if (size <= 10)
 {
-_putchar('\n');
-}
-else
-{
+
 for (row = 1; row <= size; row++)
 {
 _putchar(' ');

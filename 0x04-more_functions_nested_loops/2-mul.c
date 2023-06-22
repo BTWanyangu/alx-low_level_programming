@@ -2,13 +2,13 @@
 #include <stdio.h>
 /**
  * mul - multipy integers
- * @a: - input 
+ * @a: - input
  * @b: - input
  * Return: 0 (success)
  */
 int mul(int a, int b)
 {
-int result a * b;
+int result = a * b;
 return (result);
 }
 
