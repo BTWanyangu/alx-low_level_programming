@@ -1,9 +1,9 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * mul - multiplies two integers
- * @a: input
- * @b: input
+ * mul - multipy integers
+ * @a: - input 
+ * @b: - input
  * Return: 0 (success)
  */
 int mul(int a, int b)
@@ -11,3 +11,4 @@ int mul(int a, int b)
 int result a * b;
 return (result);
 }
+
