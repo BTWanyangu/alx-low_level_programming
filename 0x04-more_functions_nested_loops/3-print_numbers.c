@@ -5,11 +5,11 @@
  */
 void print_numbers(void)
 {
-char c;
-for (c = '0'; c <= '9'; c++)
+int i;
+char numbers[] = "0123456789";
+for (i = 0; i <= 9; i++)
 {
-_putchar(c);
+_putchar(numbers[i]);
 }
 _putchar('\n');
 }
-
