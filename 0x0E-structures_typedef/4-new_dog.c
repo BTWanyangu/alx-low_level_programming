@@ -12,6 +12,7 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int name_len, owner_len;
+	int i;
 	dog_t *new_dog;
 
 	/* Allocate memory for the new dog */
@@ -39,9 +40,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	/* Copy the name and owner strings to the new dog */
-	for (int i = 0; i <= name_len; i++)
+	for (i = 0; i <= name_len; i++)
 		new_dog->name[i] = name[i];
-	for (int i = 0; i <= owner_len; i++)
+	for (i = 0; i <= owner_len; i++)
 		new_dog->owner[i] = owner[i];
 
 	new_dog->age = age;
