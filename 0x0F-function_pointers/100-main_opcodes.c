@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	}
 
 	unsigned char *main_ptr = (unsigned char *)main;
+
 	for (i = 0; i < num_bytes; i++)
 	{
 		printf("%02x", main_ptr[i]);
