@@ -1,6 +1,13 @@
-#include <stddef.h>
 #ifndef FUNCTION_POINTERS_H
 #define FUNCTION_POINTERS_H
+
+/**
+ * print_name - Prints a name using the provided function.
+ * @name: Name of the person.
+ * @f: Function pointer to print the name.
+ *
+ * Return: Nothing.
+ */
 
 int _putchar(char c);
 void print_name(char *name, void (*f)(char *));
