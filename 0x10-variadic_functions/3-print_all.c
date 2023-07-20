@@ -3,92 +3,62 @@
 #include "variadic_functions.h"
 
 /**
- * print_char - Print a character.
- * @arg: The argument to print.
- */
-void print_char(va_list arg)
-{
-    printf("%c", va_arg(arg, int));
-}
-
-/**
- * print_int - Print an integer.
- * @arg: The argument to print.
- */
-void print_int(va_list arg)
-{
-    printf("%d", va_arg(arg, int));
-}
-
-/**
- * print_float - Print a float.
- * @arg: The argument to print.
- */
-void print_float(va_list arg)
-{
-    printf("%f", va_arg(arg, double));
-}
-
-/**
- * print_string - Print a string.
- * @arg: The argument to print.
- */
-void print_string(va_list arg)
-{
-    char *str = va_arg(arg, char *);
-
-    if (str == NULL)
-    {
-        printf("(nil)");
-        return;
-    }
-    printf("%s", str);
-}
-
-/**
- * print_all - Prints anything.
- * @format: A list of types of arguments passed to the function.
+ * print_all - Prints values based on the provided format.
+ * @format: A string representing the format of the arguments to be printed.
+ *           'c' for char, 'i' for integer, 'f' for float, 's' for char *.
+ *           Any other character is ignored.
  */
 void print_all(const char * const format, ...)
 {
-    va_list args;
-    unsigned int i = 0;
-    char *separator = "";
+	va_list args;
+	int i = 0;
+	char c;
+	int num;
+	char *str;
+	double d_num;
 
-    if (format == NULL)
-        return;
+	va_start(args, format);
 
-    va_start(args, format);
+	while (format && format[i])
+	{
+		switch (format[i])
+		{
+			case 'c':
+				c = va_arg(args, int);
+				printf("%c", c);
+				break;
 
-    while (format[i])
-    {
-        switch (format[i])
-        {
-        case 'c':
-            printf("%s%c", separator, va_arg(args, int));
-            break;
-        case 'i':
-            printf("%s%d", separator, va_arg(args, int));
-            break;
-        case 'f':
-            printf("%s%f", separator, va_arg(args, double));
-            break;
-        case 's':
-            separator = va_arg(args, char *);
-            if (separator == NULL)
-            {
-                printf("(nil)");
-                separator = "";
-            }
-            break;
-        default:
-            break;
-        }
-        if ((format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's') && format[i + 1])
-            separator = ", ";
-        i++;
-    }
-    printf("\n");
-    va_end(args);
+			case 'i':
+				num = va_arg(args, int);
+				printf("%d", num);
+				break;
+
+			case 'f':
+				d_num = va_arg(args, double);
+				printf("%f", d_num);
+				break;
+
+			case 's':
+				str = va_arg(args, char *);
+				if (str)
+					printf("%s", str);
+				else
+					printf("(nil)");
+				break;
+
+			default:
+				/* Ignore the invalid character and continue to the next one. */
+				i++;
+				continue;
+		}
+
+		if (format[i + 1])
+			printf(", ");
+
+		i++;
+	}
+
+	va_end(args);
+	printf("\n");
 }
 
